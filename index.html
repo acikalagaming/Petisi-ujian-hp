@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petisi: Batalkan Ujian dengan Kertas - SMAS Dr. Wahidin Sudirohusodo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .petition-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .school {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .goal {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .supporters {
+            margin-top: 30px;
+        }
+
+        .supporter-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .supporter-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .supporter-item:last-child {
+            border-bottom: none;
+        }
+
+        .arguments {
+            margin: 30px 0;
+        }
+
+        .argument-item {
+            background: #e8f5e8;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="petition-card">
+            <div class="header">
+                <h1>BATALKAN UJIAN SEMESTER DENGAN KERTAS</h1>
+                <div class="school">SMAS Dr. Wahidin Sudirohusodo</div>
+                <div style="margin-top: 10px; font-size: 1.1em;">KEMBALIKAN UJIAN DENGAN HP</div>
+            </div>
+
+            <div class="content">
+                <div class="progress-section">
+                    <div class="progress-text">
+                        <span id="currentCount">0</span> dari <span class="goal">700</span> tanda tangan terkumpul
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div style="text-align: center; color: #666; font-size: 0.9em;">
+                        Butuh <span id="remaining">700</span> tanda tangan lagi!
+                    </div>
+                </div>
+
+                <div class="arguments">
+                    <h3 style="margin-bottom: 15px; color: #333;">Mengapa Ujian dengan HP Lebih Baik?</h3>
+                    <div class="argument-item">
+                        <strong>📱 Efisiensi Waktu:</strong> Tidak perlu menulis panjang, langsung input jawaban
+                    </div>
+                    <div class="argument-item">
+                        <strong>🌿 Ramah Lingkungan:</strong> Mengurangi penggunaan kertas dan tinta
+                    </div>
+                    <div class="argument-item">
+                        <strong>💡 Teknologi Modern:</strong> Sesuai dengan perkembangan zaman digital
+                    </div>
+                    <div class="argument-item">
+                        <strong>📊 Hasil Cepat:</strong> Nilai bisa langsung diketahui setelah ujian
+                    </div>
+                    <div class="argument-item">
+                        <strong>🎯 Akurasi Tinggi:</strong> Minim kesalahan dalam koreksi jawaban
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 style="margin-bottom: 20px; color: #333;">Dukung Petisi Ini!</h3>
+                    <form id="petitionForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap:</label>
+                            <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap Anda">
+                        </div>
+                        <div class="form-group">
+                            <label for="class">Kelas:</label>
+                            <input type="text" id="class" name="class" required placeholder="Contoh: XII IPA 1">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan Dukungan (opsional):</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Tulis pesan dukungan untuk petisi ini..."></textarea>
+                        </div>
+                        <button type="submit">TANDATANGANI PETISI</button>
+                    </form>
+                </div>
+
+                <div class="supporters">
+                    <h3 style="margin-bottom: 15px; color: #333;">Dukungan Terbaru</h3>
+                    <div class="supporter-list" id="supporterList">
+                        <div class="supporter-item">
+                            <span>Belum ada dukungan</span>
+                            <span style="color: #666;">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                Petisi ini dibuat oleh siswa SMAS Dr. Wahidin Sudirohusodo<br>
+                Untuk kemajuan pendidikan yang lebih modern dan efisien
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data penyimpanan lokal untuk petisi
+        let supporters = JSON.parse(localStorage.getItem('petitionSupporters')) || [];
+        const target = 700;
+
+        // Update progress bar dan counter
+        function updateProgress() {
+            const currentCount = supporters.length;
+            const percentage = Math.min((currentCount / target) * 100, 100);
+            
+            document.getElementById('currentCount').textContent = currentCount;
+            document.getElementById('remaining').textContent = target - currentCount;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            
+            // Update supporter list
+            const supporterList = document.getElementById('supporterList');
+            supporterList.innerHTML = '';
+            
+            if (supporters.length === 0) {
+                supporterList.innerHTML = '<div class="supporter-item"><span>Belum ada dukungan</span><span style="color: #666;">-</span></div>';
+            } else {
+                // Tampilkan 10 dukungan terbaru
+                const recentSupporters = supporters.slice(-10).reverse();
+                recentSupporters.forEach(supporter => {
+                    const item = document.createElement('div');
+                    item.className = 'supporter-item';
+                    item.innerHTML = `
+                        <span>${supporter.name}</span>
+                        <span style="color: #666;">${supporter.class}</span>
+                    `;
+                    supporterList.appendChild(item);
+                });
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('petitionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const studentClass = document.getElementById('class').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (name && studentClass) {
+                // Cek apakah sudah mendukung
+                const alreadySupported = supporters.some(s => 
+                    s.name.toLowerCase() === name.toLowerCase() && 
+                    s.class.toLowerCase() === studentClass.toLowerCase()
+                );
+                
+                if (alreadySupported) {
+                    alert('Anda sudah mendukung petisi ini!');
+                    return;
+                }
+                
+                // Tambahkan supporter baru
+                const newSupporter = {
+                    name: name,
+                    class: studentClass,
+                    message: message,
+                    timestamp: new Date().toISOString()
+                };
+                
+                supporters.push(newSupporter);
+                localStorage.setItem('petitionSupporters', JSON.stringify(supporters));
+                
+                // Reset form
+                document.getElementById('petitionForm').reset();
+                
+                // Update UI
+                updateProgress();
+                
+                // Tampilkan konfirmasi
+                alert('Terima kasih! Dukungan Anda telah tercatat. Mari bersama-sama wujudkan pendidikan yang lebih modern!');
+                
+                // Animasi celebration jika mencapai target
+                if (supporters.length >= target) {
+                    celebrate();
+                }
+            }
+        });
+
+        // Celebration animation ketika mencapai target
+        function celebrate() {
+            const header = document.querySelector('.header');
+            header.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+            
+            // Tambahkan efek konfeti sederhana
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.top = '0';
+            confetti.style.left = '0';
+            confetti.style.width = '100%';
+            confetti.style.height = '100%';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '1000';
+            document.body.appendChild(confetti);
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = '10px';
+                    particle.style.height = '10px';
+                    particle.style.background = ['#4CAF50', '#45a049', '#ff6b6b', '#ee5a24'][Math.floor(Math.random() * 4)];
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = '-10px';
+                    particle.style.animation = `fall ${Math.random() * 2 + 1}s linear forwards`;
+                    confetti.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 3000);
+                }, i * 100);
+            }
+            
+            // Tambahkan style untuk animasi fall
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    to {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
